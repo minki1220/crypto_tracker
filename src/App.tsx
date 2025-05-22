@@ -1,6 +1,6 @@
-import styled from "styled-components";
-import { createGlobalStyle } from "styled-components";
-import Router from "./Router";
+import { createGlobalStyle, ThemeProvider } from "styled-components";
+import { Outlet } from "react-router-dom";
+import { theme } from "./theme";
 
 const GlobalStyle = createGlobalStyle`
 @import url('https://fonts.googleapis.com/css2?family=Source+Sans+Pro:wght@300;400&display=swap');
@@ -67,8 +67,10 @@ a {
 function App() {
   return (
     <>
-      <GlobalStyle />
-      <Router></Router>
+      <ThemeProvider theme={theme}>
+        <GlobalStyle />
+        <Outlet />
+      </ThemeProvider>
     </>
   );
 }
