@@ -1,6 +1,6 @@
 import { createGlobalStyle, ThemeProvider } from "styled-components";
 import { Outlet } from "react-router-dom";
-import { theme } from "./theme";
+import { ReactQueryDevtools } from "@tanstack/react-query-devtools";
 
 const GlobalStyle = createGlobalStyle`
 @import url('https://fonts.googleapis.com/css2?family=Source+Sans+Pro:wght@300;400&display=swap');
@@ -67,10 +67,9 @@ a {
 function App() {
   return (
     <>
-      <ThemeProvider theme={theme}>
-        <GlobalStyle />
-        <Outlet />
-      </ThemeProvider>
+      <GlobalStyle />
+      <Outlet />
+      <ReactQueryDevtools initialIsOpen={true} />
     </>
   );
 }
